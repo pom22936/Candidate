@@ -142,3 +142,13 @@ body{
   width: 100%;
   height: auto;
 }
+
+input.ng-invalid.ng-touched {
+  border: solid 1px red;
+}
+textarea.ng-invalid.ng-touched {
+  border: solid 1px red;
+}
+.help-block{
+  color: red;
+}

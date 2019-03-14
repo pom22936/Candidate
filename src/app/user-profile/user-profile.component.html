@@ -52,12 +52,14 @@
             <div class="form-group row">
                 <label for="inputName" class="col-sm-2 col-form-label"><b>Name :</b> </label>
                 <div class="col-sm-4">
-                  <input type="text" name="name" [(ngModel)]="model.name" class="form-control" id="inputName" placeholder="Name" required>
+                  <input type="text" name="name" [(ngModel)]="model.name" class="form-control" id="inputName" placeholder="Name" #name="ngModel" required>
+                  <span class="help-block" *ngIf="!name.valid && name.touched">this field is required</span>
                 </div>
 
                 <label for="inputSurname" class="col-sm-2 col-form-label"><b>Surname :</b> </label>
                 <div class="col-sm-4">
-                  <input type="text" name="sername" [(ngModel)]="model.sername" class="form-control" id="inputSurname" placeholder="Surname" required>
+                  <input type="text" name="sername" [(ngModel)]="model.sername" class="form-control" id="inputSurname" placeholder="Surname" #sername="ngModel" required>
+                  <span class="help-block" *ngIf="!sername.valid && sername.touched">this field is required</span>
                 </div>
             </div>
             <div class="form-group row">
@@ -82,13 +84,15 @@
               <div class="form-group row">
                 <label for="inputPhone" class="col-sm-3 col-form-label"><b>Mobile Phone:</b> </label>
                 <div class="col-sm-4" style="right: 8%;">
-                  <input type="tel" name="phone" (keypress)="numberOnly($event)" [(ngModel)]="model.phone" class="form-control" id="inputPhone" placeholder="0xxxxxxxx" maxlength="10" required>
+                  <input type="tel" name="phone" (keypress)="numberOnly($event)" [(ngModel)]="model.phone" #phone="ngModel" class="form-control" id="inputPhone" placeholder="0xxxxxxxx" maxlength="10" required>
+                  <span class="help-block" *ngIf="!phone.valid && phone.touched">this field is required</span>
                 </div>
               </div>
               <div class="form-group row">
                   <label for="inputAddress" class="col-sm-2 col-form-label"><b> Address :</b></label>
                   <div class="col-sm-10">
-                      <textarea name="address" class="form-control" [(ngModel)]="model.address" id="inputAddress" maxlength="100" rows="3" required></textarea>
+                      <textarea name="address" class="form-control" [(ngModel)]="model.address" #address="ngModel" id="inputAddress" maxlength="100" rows="3" required></textarea>
+                      <span class="help-block" *ngIf="!address.valid && address.touched">this field is required</span>
                   </div>
                 </div>
           </form>
