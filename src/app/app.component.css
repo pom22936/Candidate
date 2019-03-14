@@ -1,0 +1,30 @@
+body{
+  font-family: "Quicksand";
+}
+#hr-nav{
+  background-color: chocolate;
+  height: 5px;
+  margin: 0;
+}
+
+#resize{
+  width: 100%;
+  height: 150px;
+}
+
+#title-page{
+  text-align: center;
+  color: chocolate;
+  padding-top: 5%;
+  padding-bottom: 3%;
+  padding: 0%;
+  margin: 0%;
+  position: absolute;
+  left: 50%;
+  top: 23%;
+  transform: translate(-50%, -50%);
+}
+
+.navbar {
+  min-height: 20px !important;
+}

@@ -1,0 +1,144 @@
+body{
+  background-image: url('../../85649.jpg');
+}
+/* title */
+#title-page{
+  text-align: center;
+  color: chocolate;
+  padding-top: 5%;
+  padding-bottom: 3%;
+  font-size: 53px;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+}
+/* end title */
+
+.icon-progerss{
+  height: 80px;
+  width:  80px;
+  background-color: rgb(148, 147, 147);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.icon-progerss-active{
+  height:  80px;
+  width:  80px;
+  background-color: #FF8041;
+  border-radius: 50%;
+  display: inline-block;
+  border-style: solid;
+  border-color: #CC5D36;
+  border-width:3px;
+}
+
+/* breadcrumb*/
+.line{
+  border: 3px solid rgb(148, 147, 147);
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.line-active{
+  border: 3px solid chocolate;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.bc-item{
+  text-align: center;
+  z-index: 100;
+}
+
+.breadcrumb{
+  background-color: #ffffff !important;
+}
+.line-icon{
+  color: chocolate;
+  border-top: 1px solid chocolate;
+  border-width: 10px;
+  display: block;
+  margin-top: 45px;
+  z-index: 999;
+}
+.line-icon-back{
+  color: rgb(148, 147, 147);
+  border-top: 1px solid rgb(148, 147, 147);
+  border-width: 10px;
+  display: block;
+  margin-top: 45px;
+}
+.link-breadcrumd{
+  color: rgb(158, 156, 155);
+  text-shadow: 1px 1px 1px #ccc;
+  font-size: 0.8em;
+  pointer-events: none;
+  cursor: default;
+  text-align: center;
+}
+
+.link-breadcrumd-active{
+  color: chocolate;
+  text-shadow: 1px 1px 1px #ccc;
+  font-size: 0.8em;
+  text-align: center;
+}
+/* end breadcrumd */
+/* form */
+.bg-form{
+  background-color: #ffffff;
+  padding-top: 5%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 5%;
+  width: 80%;
+  border: 1px solid #CC5D36;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #CC5D36 !important;
+}
+
+.btn-warning{
+  background-color: rgba(255, 124, 78, 0.17) !important;
+  width: 300px;
+}
+
+.btn-warning:hover{
+  border-color: rgb(221, 139, 80);
+  border-width: 1.5px;
+}
+/* End form */
+/* footer */
+#footer-bar{
+  background-color:#FF7C4E;;
+  height: 1%;
+  text-align: center;
+  padding-top: 0.5%;
+}
+/* End footer */
+
+/* visible button */
+#AddMoreProject{
+  visibility: hidden;
+}
+
+#tag{
+  margin-right: 5px;
+  background-color: #CC5D36;
+  height: 1%;
+  text-align: center;
+}
+
+.textleft{
+  text-align: left;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
