@@ -42,11 +42,12 @@
             <div class="form-group row">
               <label for="inputTitle" class="col-sm-2 col-form-label"> <b>Title :</b> </label>
               <div class="col-sm-3">
-                  <select class="form-control form-control-sm" name="title" [(ngModel)]="model.title" required>
-                      <option disabled value="empty">SELETE YOUR TITLE</option>
+                  <select class="form-control form-control-sm" #title="ngModel" name="title" [(ngModel)]="model.title" required>
+                      <option disabled value="">SELETE YOUR TITLE</option>
                       <option value="mr">MR</option>
                       <option value="mrs">MRS</option>
                   </select>
+                  <span class="help-block" *ngIf="title.invalid && title.touched">this field is required</span>
               </div>
             </div>
             <div class="form-group row">

@@ -21,12 +21,18 @@ export class CompleteComponent implements OnInit {
   json:any = {};
   datahttp:any;
   result:any;
+  project : any;
+  certificate:any;
 
   constructor(private dataService :DataService, private http : HttpClient) { }
 
   ngOnInit() {
     this.data.user = this.dataService.getuser();
     this.data.detail = this.dataService.getproject();
+
+    this.project =  console.log(JSON.stringify(this.data.detail.project.data));
+
+
     this.json =
     {
       "email" : this.data.user.model.email,
@@ -36,16 +42,18 @@ export class CompleteComponent implements OnInit {
       "phone": this.data.user.model.phone,
       "address": this.data.user.model.address,
       "position": this.data.detail.details.position,
-      "skill": this.data.detail.skill,
-      "project": this.data.detail.project.data,
+      "skill": String(this.data.detail.skill),
+      "project": this.data.detail.project.data ,
       "certificate": this.data.detail.certification.data
     };
+
+    console.log(this.json);
 
 
     // http://localhost:7777/user/newuser
     // https://itoaos-commnunity-api.com/register/candidate/createinfo/
-    // http://jsonplaceholder.typicode.com/posts
-    const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/createinfo/', {
+    //http://jsonplaceholder.typicode.com/posts
+    const req = this.http.post('http://jsonplaceholder.typicode.com/posts', {
       data: JSON.stringify(this.json)
     }, httpOption)
       .subscribe(

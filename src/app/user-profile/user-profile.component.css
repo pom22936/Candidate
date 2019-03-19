@@ -126,12 +126,23 @@ body{
   height: auto;
 }
 
-
 input.ng-invalid.ng-touched {
   border: solid 1px red;
 }
+input.ng-touched.ng-valid{
+  border: solid 1px green;
+}
 textarea.ng-invalid.ng-touched {
   border: solid 1px red;
+}
+textarea.ng-valid {
+  border: solid 1px green;
+}
+select.ng-invalid.ng-touched{
+  border: solid 1px red;
+}
+select.ng-valid{
+  border: solid 1px green;
 }
 .help-block{
   color: red;

@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
     // console.log(this.model);
 
     this.model.gender = 'Male';
-    this.model.title = 'empty';
+    this.model.title = '';
 
   }
 
