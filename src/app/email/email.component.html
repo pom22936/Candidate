@@ -1,0 +1,18 @@
+<div class="container bg-form" >
+    <h2>Check Your Email Adress</h2>
+    <form name="emailform" #emailform="ngForm">
+      <div class="form-group row">
+          <input type="email" name="EMAIL" [(ngModel)]="model.EMAIL" #EMAIL="ngModel" class="form-control" id="inputEmail" placeholder="Email" required email>
+          <span class="help-block" *ngIf="!EMAIL.valid && EMAIL.touched">Please enter a valid email!</span>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-secondary" id="btn-cencle">Cancel</button>
+        <button type="submit" [disabled]="!emailform.valid" (click)="sentmail()" class="btn btn-primary float-right">enter</button>
+      </div>
+
+    </form>
+</div>
+<img src="../../assets/img/footer-regis-2.png" class="responsive" alt="footer">
+<div id="footer-bar">
+    <h4>copyrigth2019</h4>
+</div>

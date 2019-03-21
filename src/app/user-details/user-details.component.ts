@@ -64,12 +64,11 @@ export class UserDetailsComponent implements OnInit {
   }
 
   addproject = () =>{
-    this.project.data.push({ project : "" , year : 2019});
-    console.log(this.project.data.length)
+    this.project.data.push({ "project" : "" , "year" : 2019});
   }
 
   addcertification = () =>{
-    this.certification.data.push({ certificate : "" , year : 2019});
+    this.certification.data.push({ "certificate" : "" , "year" : 2019});
   }
 
   savetemp(i){

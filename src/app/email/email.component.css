@@ -1,0 +1,29 @@
+.bg-form{
+  padding: 2.5%;
+  background-color: #ffffff;
+  border: 1px solid #CC5D36;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 50%;
+  text-align: center;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #CC5D36 !important;
+}
+#footer-bar{
+  background-color: #FF7C4E;
+  height: 1.5%;
+  text-align: center;
+  padding-top: 0.5%;
+}
+.responsive {
+  width: 100%;
+  height: 275px;
+}
+#btn-cencle{
+  margin-left: 35%;
+  margin-right: 5%;
+}
+.help-block{
+  color: red;
+}

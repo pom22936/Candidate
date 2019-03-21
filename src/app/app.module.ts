@@ -8,6 +8,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { CompleteComponent } from './complete/complete.component';
 import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EmailComponent } from './email/email.component';
 
 
 
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     UserProfileComponent,
     UserDetailsComponent,
     CompleteComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,
