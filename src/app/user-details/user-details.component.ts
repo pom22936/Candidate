@@ -65,6 +65,7 @@ export class UserDetailsComponent implements OnInit {
 
   addproject = () =>{
     this.project.data.push({ project : "" , year : 2019});
+    console.log(this.project.data.length)
   }
 
   addcertification = () =>{
@@ -78,10 +79,12 @@ export class UserDetailsComponent implements OnInit {
 
   delProject(i){
     this.project.data.splice(i , 1);
+    this.project.state = false;
   }
 
   delCert(i){
     this.certification.data.splice(i , 1);
+    this.certification.state = false;
   }
 
 
