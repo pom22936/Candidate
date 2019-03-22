@@ -32,37 +32,31 @@ export class CompleteComponent implements OnInit {
 
     this.json =
     {
-      '"email"' : this.data.user.model.email,
-      '"first_name"': this.data.user.model.name,
-      '"last_name"': this.data.user.model.sername,
-      '"gender"': this.data.user.model.gender,
-      '"phone"': this.data.user.model.phone,
-      '"address"': this.data.user.model.address,
-      '"position"': this.data.detail.details.position,
-      '"skill"': String(this.data.detail.skill),
-      '"project"': this.data.detail.project.data,
-      '"certificate"': this.data.detail.certification.data
+      email : this.data.user.model.email,
+      first_name: this.data.user.model.name,
+      last_name: this.data.user.model.sername,
+      gender: this.data.user.model.gender,
+      phone: this.data.user.model.phone,
+      address: this.data.user.model.address,
+      position: this.data.detail.details.position,
+      skill: String(this.data.detail.skill),
+      project: this.data.detail.project.data ,
+      certificate: this.data.detail.certification.data
     };
 
-    console.log(this.json);
-
-
+    // console.log(JSON.stringify(this.json));
     // http://localhost:7777/user/newuser
     // https://itoaos-commnunity-api.com/register/candidate/createinfo/
-    //http://jsonplaceholder.typicode.com/posts
-
-
-    // const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/createinfo/', {
-    //   data: this.json
-    // }, httpOption)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res);
-    //     },
-    //     err => {
-    //       console.log(err);
-    //     }
-    //   );
+    // http://jsonplaceholder.typicode.com/posts
+    const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/createinfo/',JSON.stringify(this.json), httpOption)
+      .subscribe(
+        res => {
+          console.log(this.json);
+        },
+        err => {
+          console.log(err);
+        }
+      );
 
       //http://localhost:7777/user
 

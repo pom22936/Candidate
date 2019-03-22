@@ -25,19 +25,42 @@ export class EmailComponent implements OnInit {
   }
 
   sentmail(){
-    this.json = {'"EMAIL"' : this.model.EMAIL}
+    this.json = {EMAIL : this.model.EMAIL};
 
-    const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/sendemail/', {
-      data: this.json
-    }, httpOption)
+    const req = this.http.post('http://jsonplaceholder.typicode.com/posts',JSON.stringify(this.json), httpOption)
       .subscribe(
         res => {
+          let timerInterval;
           Swal.fire({
-            type: 'success',
-            title: JSON.stringify(res),
+            imageUrl: '../../assets/img/email-noti.svg',
+            imageAlt: 'A tall image',
+            title: "Just one more stap...",
+            // confirmButtonText:  'Resend',
             showConfirmButton: false,
-            timer: 5000
-          });
+            html: 'Please confirm your username and password in email to activate your account <br><br>'+
+            '<button id="toggle" *ngIF="timerInterval = 0" class="btn btn-primary">' +
+              'Resend' +
+            '</button><br><br>'+
+            'Resend email again <strong></strong> seconds.',
+            timer: 1000 * 60,
+            onBeforeOpen: () => {
+              timerInterval = setInterval(() => {
+                Swal.getContent().querySelector('strong')
+                  .textContent = Swal.getTimerLeft()
+              }, 1000)
+            },
+            onClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            if (
+              // Read more about handling dismissals
+              result.dismiss === Swal.DismissReason.timer
+            ) {
+              console.log('I was closed by the timer')
+            }
+
+          })
         },
         err => {
           console.log(err);
