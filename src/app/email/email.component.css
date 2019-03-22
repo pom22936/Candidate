@@ -4,7 +4,7 @@
   border: 1px solid #CC5D36;
   box-sizing: border-box;
   border-radius: 5px;
-  width: 50%;
+  width: 40%;
   text-align: center;
 }
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
@@ -24,6 +24,12 @@
   margin-left: 35%;
   margin-right: 5%;
 }
+input.ng-invalid.ng-touched {
+  border: solid 1px red;
+}
 .help-block{
   color: red;
+}
+#but-send{
+  display: none;
 }

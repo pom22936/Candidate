@@ -6,7 +6,7 @@
           <span class="help-block" *ngIf="!EMAIL.valid && EMAIL.touched">Please enter a valid email!</span>
       </div>
       <div class="row">
-        <button type="button" class="btn btn-secondary" id="btn-cencle">Cancel</button>
+        <button type="button" class="btn btn-secondary" id="btn-cencle">cancel</button>
         <button type="submit" [disabled]="!emailform.valid" (click)="sentmail()" class="btn btn-primary float-right">enter</button>
       </div>
 

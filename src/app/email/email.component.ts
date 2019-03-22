@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import * as $ from 'jquery';
+
 declare var Swal: any;
 
 const httpOption = {
@@ -26,46 +28,58 @@ export class EmailComponent implements OnInit {
 
   sentmail(){
     this.json = {EMAIL : this.model.EMAIL};
-
+    //https://itoaos-commnunity-api.com/register/candidate/sendemail/
+    //http://jsonplaceholder.typicode.com/posts
     const req = this.http.post('http://jsonplaceholder.typicode.com/posts',JSON.stringify(this.json), httpOption)
       .subscribe(
         res => {
-          let timerInterval;
-          Swal.fire({
-            imageUrl: '../../assets/img/email-noti.svg',
-            imageAlt: 'A tall image',
-            title: "Just one more stap...",
-            // confirmButtonText:  'Resend',
-            showConfirmButton: false,
-            html: 'Please confirm your username and password in email to activate your account <br><br>'+
-            '<button id="toggle" *ngIF="timerInterval = 0" class="btn btn-primary">' +
-              'Resend' +
-            '</button><br><br>'+
-            'Resend email again <strong></strong> seconds.',
-            timer: 1000 * 60,
-            onBeforeOpen: () => {
-              timerInterval = setInterval(() => {
-                Swal.getContent().querySelector('strong')
-                  .textContent = Swal.getTimerLeft()
-              }, 1000)
-            },
-            onClose: () => {
-              clearInterval(timerInterval)
-            }
-          }).then((result) => {
-            if (
-              // Read more about handling dismissals
-              result.dismiss === Swal.DismissReason.timer
-            ) {
-              console.log('I was closed by the timer')
-            }
-
-          })
+          console.log(JSON.stringify(this.json));
+          this.sw_alert();
         },
         err => {
           console.log(err);
         }
       );
+  }
+
+  sw_alert(){
+    let timerInterval;
+    Swal.fire({
+      imageUrl: '../../assets/img/email-noti.svg',
+      imageAlt: 'A tall image',
+      title: "Just one more stap...",
+
+      // text: 'Please confirm your username and password in email to activate your account',
+      // showCloseButton: true,
+      // confirmButtonText:'Resend',
+      // footer: 'Resend email again <strong></strong> seconds.',
+
+      showConfirmButton: false,
+      html: 'Please confirm your username and password in email to activate your account <br><br>'+
+      '<button type="button" id="but-send" [disabled]="Swal.getTimerLeft != 0" (click)="sentmail()" class="btn btn-primary">' +
+        'Resend' +
+      '</button><br><br>'+
+      'Resend email again <strong></strong> seconds.',
+      timer: 60000,
+      onBeforeOpen: () => {
+        timerInterval = setInterval(() => {
+          Swal.getContent().querySelector('strong')
+            .textContent = (Swal.getTimerLeft()/1000).toFixed(0);
+        }, 1000);
+
+      },
+      onClose: () => {
+        clearInterval(timerInterval);
+      }
+    }).then((result) => {
+      if (
+        // Read more about handling dismissals
+        result.dismiss === Swal.DismissReason.timer
+      ) {
+        console.log('I was closed by the timer');
+      }
+
+    });
   }
 
 }

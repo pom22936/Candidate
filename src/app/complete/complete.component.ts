@@ -48,6 +48,7 @@ export class CompleteComponent implements OnInit {
     // http://localhost:7777/user/newuser
     // https://itoaos-commnunity-api.com/register/candidate/createinfo/
     // http://jsonplaceholder.typicode.com/posts
+    console.log(JSON.stringify(this.json));
     const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/createinfo/',JSON.stringify(this.json), httpOption)
       .subscribe(
         res => {

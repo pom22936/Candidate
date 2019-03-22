@@ -92,7 +92,8 @@ export class UserDetailsComponent implements OnInit {
   }
 
   sw(){
-    swal.fire({type: 'question',title: 'Are you sure your want to confirm this?', showCancelButton: true}).then(result => {
+    swal.fire({type: 'question',title: 'Are you sure your want to confirm this?', showCancelButton: true})
+    .then(result => {
       if (result.value) {
         let temp:any = {};
 
@@ -107,6 +108,6 @@ export class UserDetailsComponent implements OnInit {
         // handle dismissals
         // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
       }
-    })
+    });
   }
 }
