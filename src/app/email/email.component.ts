@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import * as $ from 'jquery';
+import { DOCUMENT } from '@angular/common';
+import { timer } from 'rxjs';
 
 declare var Swal: any;
 
@@ -21,12 +23,13 @@ export class EmailComponent implements OnInit {
 
   model:any = {};
   json:any = {};
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, @Inject(DOCUMENT) private document: any) { }
 
   ngOnInit() {
   }
 
   sentmail(){
+    this.sw_alert();
     this.json = {EMAIL : this.model.EMAIL};
     //https://itoaos-commnunity-api.com/register/candidate/sendemail/
     //http://jsonplaceholder.typicode.com/posts
@@ -34,7 +37,6 @@ export class EmailComponent implements OnInit {
       .subscribe(
         res => {
           console.log(JSON.stringify(this.json));
-          this.sw_alert();
         },
         err => {
           console.log(err);
@@ -60,15 +62,21 @@ export class EmailComponent implements OnInit {
         'Resend' +
       '</button><br><br>'+
       'Resend email again <strong></strong> seconds.',
-      timer: 60000,
+      timer: 20000,
       onBeforeOpen: () => {
-        timerInterval = setInterval(() => {
-          Swal.getContent().querySelector('strong')
-            .textContent = (Swal.getTimerLeft()/1000).toFixed(0);
-        }, 1000);
+        if(Swal.getTimerLeft() > 10000){
+            timerInterval = setInterval(() => {
+            Swal.getContent().querySelector('strong')
+              .textContent = (Swal.getTimerLeft()/1000).toFixed(0);
+              this.document.querySelector("#but-send").disabled = "true"
+          }, 1000);
+        }else{
+          this.document.querySelector("#but-send").style.display = "none"
+        }
 
       },
       onClose: () => {
+
         clearInterval(timerInterval);
       }
     }).then((result) => {
