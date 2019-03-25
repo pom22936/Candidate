@@ -23,17 +23,18 @@ export class EmailComponent implements OnInit {
 
   model:any = {};
   json:any = {};
+  time:any;
+  distance:any;
   constructor(private http : HttpClient, @Inject(DOCUMENT) private document: any) { }
 
   ngOnInit() {
   }
 
   sentmail(){
-    this.sw_alert();
     this.json = {EMAIL : this.model.EMAIL};
     //https://itoaos-commnunity-api.com/register/candidate/sendemail/
     //http://jsonplaceholder.typicode.com/posts
-    const req = this.http.post('http://jsonplaceholder.typicode.com/posts',JSON.stringify(this.json), httpOption)
+    const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/sendemail/',JSON.stringify(this.json), httpOption)
       .subscribe(
         res => {
           console.log(JSON.stringify(this.json));
@@ -42,52 +43,19 @@ export class EmailComponent implements OnInit {
           console.log(err);
         }
       );
-  }
-
-  sw_alert(){
-    let timerInterval;
-    Swal.fire({
-      imageUrl: '../../assets/img/email-noti.svg',
-      imageAlt: 'A tall image',
-      title: "Just one more stap...",
-
-      // text: 'Please confirm your username and password in email to activate your account',
-      // showCloseButton: true,
-      // confirmButtonText:'Resend',
-      // footer: 'Resend email again <strong></strong> seconds.',
-
-      showConfirmButton: false,
-      html: 'Please confirm your username and password in email to activate your account <br><br>'+
-      '<button type="button" id="but-send" [disabled]="Swal.getTimerLeft != 0" (click)="sentmail()" class="btn btn-primary">' +
-        'Resend' +
-      '</button><br><br>'+
-      'Resend email again <strong></strong> seconds.',
-      timer: 20000,
-      onBeforeOpen: () => {
-        if(Swal.getTimerLeft() > 10000){
-            timerInterval = setInterval(() => {
-            Swal.getContent().querySelector('strong')
-              .textContent = (Swal.getTimerLeft()/1000).toFixed(0);
-              this.document.querySelector("#but-send").disabled = "true"
-          }, 1000);
-        }else{
-          this.document.querySelector("#but-send").style.display = "none"
-        }
-
-      },
-      onClose: () => {
-
-        clearInterval(timerInterval);
-      }
-    }).then((result) => {
-      if (
-        // Read more about handling dismissals
-        result.dismiss === Swal.DismissReason.timer
-      ) {
-        console.log('I was closed by the timer');
-      }
-
-    });
+      var timelimit = 360000;
+      var cout =  0;
+      this.time = setInterval(() => {
+          cout += 1000;
+          this.distance = timelimit - cout;
+          var minutes = Math.floor((this.distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((this.distance % (1000 * 60)) / 1000);
+          document.getElementById("demo").innerHTML =  minutes + ":" + seconds ;
+          if (this.distance < 0) {
+            clearInterval(this.time);
+            document.getElementById("demo").innerHTML = "Time Up!";
+          }
+      }, 1000);
   }
 
 }

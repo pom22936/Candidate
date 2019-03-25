@@ -7,10 +7,23 @@
       </div>
       <div class="row">
         <button type="button" class="btn btn-secondary" id="btn-cencle">cancel</button>
-        <button type="submit" [disabled]="!emailform.valid" (click)="sentmail()" class="btn btn-primary float-right">enter</button>
+        <button type="button" [disabled]="!emailform.valid" (click)="sentmail()" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary float-right">enter</button>
       </div>
-
     </form>
+    <!-- model -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img src="../../assets/img/email-noti.svg" alt="email">
+            <p>Please confirm your username and password in email to activate your account <br></p>
+            <button type="button" [disabled]="distance > 0" (click)="sentmail()" class="btn btn-primary">Resend</button><br><br>
+            <p>Resend email again <strong id="demo"></strong> seconds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </div>
 <img src="../../assets/img/footer-regis-2.png" class="responsive" alt="footer">
 <div id="footer-bar">
