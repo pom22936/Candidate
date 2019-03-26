@@ -131,10 +131,6 @@
 /* End footer */
 
 /* visible button */
-#AddMoreProject{
-  visibility: hidden;
-}
-
 #tag{
   margin-right: 5px;
   background-color: #CC5D36;
@@ -170,8 +166,4 @@ input.ng-touched.ng-valid{
 .help-block{
   color: red;
 }
-.img-bg{
-  background-image: url("../../bg-candidate-1440x1024.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; /* Do not repeat the image */
-}
+

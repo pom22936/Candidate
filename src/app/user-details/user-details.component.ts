@@ -15,23 +15,22 @@ declare var swal: any;
 })
 export class UserDetailsComponent implements OnInit {
 
-  date:Date = new Date();
-  allyear : any = [];
-  year:Number = 0;
-  skill:string[] = [];
-  project:any = {
+  date: Date = new Date();
+  allyear: any = [];
+  year: Number = 0;
+  skill: string[] = [];
+  project: any = {
     state : false,
     data : [],
     temp : []
-  }
-  pjsave:boolean = false;
-  modeldetail : any = {};
-  certification:any = {
+  };
+  modeldetail: any = {};
+  certification: any = {
     state : false,
     data : [],
     temp : []
-  }
-  constructor(private dataService : DataService,  private router : Router) { }
+  };
+  constructor(private dataService: DataService,  private router: Router) { }
 
   ngOnInit() {
 
@@ -48,8 +47,9 @@ export class UserDetailsComponent implements OnInit {
   }
 
   addskill(data = null){
-    if(data){
-      let chack = this.skill.find(element => element==data);
+    if(data)
+    {
+      let chack = this.skill.find(element => element == data);
       if(!chack){
         this.skill.push(data);
         this.modeldetail.skill = "";
@@ -63,11 +63,13 @@ export class UserDetailsComponent implements OnInit {
     this.skill.splice(i, 1);
   }
 
-  addproject = () =>{
+  addproject = () =>
+  {
     this.project.data.push({ project : "" , year : 2019});
   }
 
-  addcertification = () =>{
+  addcertification = () =>
+  {
     this.certification.data.push({ certificate : "" , year : 2019});
   }
 
@@ -86,7 +88,6 @@ export class UserDetailsComponent implements OnInit {
     this.certification.state = false;
   }
 
-
   public get datauserdetail(){
     return JSON.stringify(this.modeldetail);
   }
@@ -95,7 +96,7 @@ export class UserDetailsComponent implements OnInit {
     swal.fire({type: 'warning',title: 'Are you sure your want to confirm this?', showCancelButton: true})
     .then(result => {
       if (result.value) {
-        let temp:any = {};
+        let temp: any = {};
 
         temp.details = this.modeldetail;
         temp.skill = this.skill;

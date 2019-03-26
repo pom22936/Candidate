@@ -20,5 +20,6 @@ body{
 .img-bg{
   background-image: url("../bg-candidate-1440x1024.jpg");
   background-size: cover;
+  background-attachment: fixed;
 }
 
