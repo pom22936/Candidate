@@ -43,7 +43,8 @@ export class EmailComponent implements OnInit {
           console.log(err);
         }
       );
-      var timelimit = 360000;
+      //360000
+      var timelimit = 10000;
       var cout =  0;
       this.time = setInterval(() => {
           cout += 1000;

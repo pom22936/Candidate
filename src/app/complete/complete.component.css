@@ -1,18 +1,17 @@
-body{
-  background-image: url('../../85649.jpg');
-}
-
 /* title */
 #title-page{
   text-align: center;
-  color: chocolate;
+  color: #CC5D36;
   padding-top: 5%;
   padding-bottom: 3%;
-  font-size: 53px;
-  position: absolute;
-  left: 50%;
-  top: 25%;
-  transform: translate(-50%, -50%);
+  padding: 0%;
+  margin: 0%;
+  padding-top: 12%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: normal;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 /* end title */
 .icon-progerss{
@@ -96,6 +95,7 @@ body{
   padding-right: 5%;
   padding-left: 5%;
   padding-bottom: 5%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {

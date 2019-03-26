@@ -49,15 +49,15 @@ export class CompleteComponent implements OnInit {
     // https://itoaos-commnunity-api.com/register/candidate/createinfo/
     // http://jsonplaceholder.typicode.com/posts
     console.log(JSON.stringify(this.json));
-    const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/createinfo/',JSON.stringify(this.json), httpOption)
-      .subscribe(
-        res => {
-          console.log(this.json);
-        },
-        err => {
-          console.log(err);
-        }
-      );
+    // const req = this.http.post('https://itoaos-commnunity-api.com/register/candidate/createinfo/',JSON.stringify(this.json), httpOption)
+    //   .subscribe(
+    //     res => {
+    //       console.log(this.json);
+    //     },
+    //     err => {
+    //       console.log(err);
+    //     }
+    //   );
 
       //http://localhost:7777/user
 

@@ -33,3 +33,11 @@ input.ng-invalid.ng-touched {
 #but-send{
   display: none;
 }
+#title-page{
+  display: none !important;
+}
+#empty{
+  width: 100%;
+  padding-top: 8.3%;
+}
+

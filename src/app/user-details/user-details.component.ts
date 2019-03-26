@@ -92,7 +92,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   sw(){
-    swal.fire({type: 'question',title: 'Are you sure your want to confirm this?', showCancelButton: true})
+    swal.fire({type: 'warning',title: 'Are you sure your want to confirm this?', showCancelButton: true})
     .then(result => {
       if (result.value) {
         let temp:any = {};
