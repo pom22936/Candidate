@@ -102,6 +102,7 @@
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  border-color: #CC5D36 ;
   background-color: #CC5D36 !important;
 }
 
@@ -165,5 +166,9 @@ input.ng-touched.ng-valid{
 }
 .help-block{
   color: red;
+}
+.delformpj{
+  background-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 

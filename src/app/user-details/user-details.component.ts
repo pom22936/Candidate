@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {DataService} from '../data.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { element } from '@angular/core/src/render3';
+import { checkAndUpdateBinding } from '@angular/core/src/view/util';
 
 declare var swal: any;
 
@@ -30,10 +31,11 @@ export class UserDetailsComponent implements OnInit {
     data : [],
     temp : []
   };
+  checksaveproject: Boolean;
+  checksavecert: Boolean;
   constructor(private dataService: DataService,  private router: Router) { }
 
   ngOnInit() {
-
     this.allyear = Array(5).fill(new Date().getFullYear());
 
     let fromsession = this.dataService.getproject();
@@ -42,9 +44,8 @@ export class UserDetailsComponent implements OnInit {
     this.certification = fromsession.certification;
     this.skill        = fromsession.skill;
     this.project = fromsession.project;
-
-    // console.log(this.project);
   }
+
 
   addskill(data = null){
     if(data)
@@ -55,7 +56,43 @@ export class UserDetailsComponent implements OnInit {
         this.modeldetail.skill = "";
       }
     }
+  }
 
+
+  checksave(){
+    const checkinput= [];
+    //get true or false by input
+    for (let index = 0; index < this.project.data.length; index++) {
+      if(this.project.data[index].project == '')
+        checkinput[index] = true;
+      else
+        checkinput[index] = false;
+    }
+    //check allvalue true or false
+    let checktrue = checkinput.filter(x => x == true);
+    if(checktrue .toString() == '')
+      this.checksaveproject = false;
+    else
+      this.checksaveproject = true;
+    return this.checksaveproject;
+  }
+
+  checkCertsave(){
+    const checkinputcert= [];
+    //get true or false by input
+    for (let index = 0; index < this.certification.data.length; index++) {
+      if(this.certification.data[index].certificate == '')
+        checkinputcert[index] = true;
+      else
+        checkinputcert[index] = false;
+    }
+    //check allvalue true or false
+    let checktruecert = checkinputcert.filter(x => x == true);
+    if(checktruecert .toString() == '')
+      this.checksavecert = false;
+    else
+      this.checksavecert = true;
+    return this.checksavecert;
   }
 
 
@@ -63,13 +100,11 @@ export class UserDetailsComponent implements OnInit {
     this.skill.splice(i, 1);
   }
 
-  addproject = () =>
-  {
+  addproject = () =>{
     this.project.data.push({ project : "" , year : 2019});
   }
 
-  addcertification = () =>
-  {
+  addcertification = () =>{
     this.certification.data.push({ certificate : "" , year : 2019});
   }
 
