@@ -33,6 +33,7 @@ export class UserDetailsComponent implements OnInit {
   };
   checksaveproject: Boolean;
   checksavecert: Boolean;
+  checkcomplete: Boolean;
   constructor(private dataService: DataService,  private router: Router) { }
 
   ngOnInit() {
@@ -44,6 +45,7 @@ export class UserDetailsComponent implements OnInit {
     this.certification = fromsession.certification;
     this.skill        = fromsession.skill;
     this.project = fromsession.project;
+
   }
 
 
@@ -56,6 +58,15 @@ export class UserDetailsComponent implements OnInit {
         this.modeldetail.skill = "";
       }
     }
+  }
+
+  checkAll(ch){
+    if(this.project.state == true && this.certification.state == true && ch == false){
+       this.checkcomplete = false;
+    }else{
+      this.checkcomplete = true;
+    }
+    return this.checkcomplete;
   }
 
 
