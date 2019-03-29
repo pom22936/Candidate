@@ -3,54 +3,52 @@
 </div>
 <div class="container">
       <!-- breadcrumb -->
-      <div class="row" style="width: 75%; margin-left: 13%">
-          <div class="col-sm-6" style="top: 60px;">
-            <hr class="line-active">
-          </div>
-          <div class="col-sm-6" style="top: 60px;">
-              <hr class="line">
-          </div>
-          <div class="col-sm col-md bc-item" style="right: 11.5%;">
-              <a href="#" class="link-breadcrumd-active icon-progerss-active" routerLink="/user-profile" routerLinkActive="active">
-                  <img src="../../assets/img/user-profile-white.png" style="margin-top: 20px;" alt="user-profile" width="35px" height="35px">
-                <p style="margin-top: 30px;"><b> User Profile</b></p>
-              </a>
-          </div>
-          <div class="col-sm col-md bc-item">
-            <a href="#" class="link-breadcrumd-active  icon-progerss-active " routerLink="/user-details" routerLinkActive="active">
-              <img src="../../assets/img/user details-white.png" style="margin-top: 20px;" alt="user-details" width="35px" height="35px">
-              <p style="margin-top: 30px;" ><b> User Detail</b></p>
-            </a>
-          </div>
-          <div class="col-sm col-md bc-item" style="left: 11.5%;">
-              <a href="#" class="link-breadcrumd icon-progerss">
-                  <img src="../../assets/img/checked-white.png" style="margin-top: 20px;" alt="Complete" width="35px" height="35px">
-                  <p style="margin-top: 30px;"><b>Complete</b> </p>
-              </a>
-          </div>
+      <div class="row" style="width: 55%; margin-left: 23%;">
+        <div class="col-sm-6" style="top: 60px;">
+          <hr class="line-active">
         </div>
-        <br>
+        <div class="col-sm-6" style="top: 60px;">
+            <hr class="line">
+        </div>
+        <div class="col-sm col-md bc-item" style="right: 11.5%;">
+            <a href="#" class="link-breadcrumd-active icon-progerss-active" routerLink="/user-profile" routerLinkActive="active">
+                <img src="../../assets/img/user-profile-white.png" style="margin-top: 18px;" alt="user-profile" width="30px" height="30px">
+            </a>
+            <p class="text-progress-active"><b>User Profile</b></p>
+        </div>
+        <div class="col-sm col-md bc-item">
+          <a href="#" class="link-breadcrumd-active icon-progerss-active">
+            <img src="../../assets/img/user details-white.png" style="margin-top: 20px;" alt="user-details" width="30px" height="30px">
+          </a>
+          <p class="text-progress-active"><b>User Detail</b></p>
+        </div>
+        <div class="col-sm col-md bc-item" style="left: 11.5%;">
+            <a href="#" class="link-breadcrumd icon-progerss">
+                <img src="../../assets/img/checked-white.png" style="margin-top: 20px;" alt="Complete" width="30px" height="30px">
+            </a>
+            <p class="text-progress"><b>Complete</b> </p>
+        </div>
+      </div>
         <!-- from -->
             <form name="formdetail" #formdetail="ngForm">
                 <div class="container bg-form" >
                   <div class="form-row">
                     <div class="form-group row col-sm-6" >
-                        <label for="inputPosition" class="col-sm-5 col-form-label"><b>Job Position :</b></label>
-                      <div class="col-sm-6" style="right: 50px;">
-                        <input type="text" name="position" [(ngModel)]="modeldetail.position" class="form-control" id="inputPosition" #position="ngModel" placeholder="Position" style="width: 220px;" required>
+                        <label for="inputPosition"><b>Job Position :</b></label>
+                      <div>
+                        <input type="text" name="position" [(ngModel)]="modeldetail.position" class="form-control form-control-sm" id="inputPosition" style="margin-left: 5%;" #position="ngModel" placeholder="Position"  required>
                         <span class="help-block" *ngIf="!position.valid && position.touched">this field is required</span>
                       </div>
                     </div>
 
-                      <div class="form-group row col-sm-6" >
-                        <label for="inputSkill" class="col-sm-5 col-form-label"><b>Skills :</b> </label>
-                      <div class="col-sm-6" style="right: 100px;">
-                        <input type="text"  name="skill" [(ngModel)]="modeldetail.skill" #att="ngModel" (keyup.enter)="addskill(modeldetail.skill)" style="width: 300px;" class="form-control" id="inputskill" placeholder="Enter skill">
-                        <div id="showtag" style="width: 300px;">
+                      <div class="form-group row col-sm-6" style="left: 50px;">
+                        <label for="inputSkill"><b>Skills :</b> </label>
+                      <div>
+                        <input type="text"  name="skill" [(ngModel)]="modeldetail.skill" #att="ngModel" (keyup.enter)="addskill(modeldetail.skill)" style="margin-left: 5%; width: 220px;" class="form-control form-control-sm" id="inputskill" placeholder="Enter skill">
+                        <div id="showtag">
                             <span id="tag" *ngFor="let tag of skill;let i = index" class="badge badge-secondary" style="margin-top: 5px;"> <a (click)="delskill(i)"  ><b>X</b></a> {{tag}}   </span>
                             <span class="help-block" *ngIf="skill.length == 0 && att.valid && att.touched" >this field is required</span>
                           </div>
-
                       </div>
                     </div>
 
@@ -71,7 +69,7 @@
               <div *ngIf="project.data.length > 0 &&!project.state" class="container bg-form text-center" id="div-form-pj2">
                 <div class="row">
                   <div class="col-sm-2" align='left'>
-                      <span><img src="../../assets/img/project.png" alt="project" width="80px" height="80px"></span>
+                      <span><img src="../../assets/img/project.png" alt="project" width="60px" height="60px"></span>
                   </div>
                   <div class="col-sm-10" align='left' style="right: 30px;">
                       <b style="color: #CC5D36;font-size: 22px;">Project</b><br>
@@ -81,12 +79,12 @@
                 <div *ngFor="let t of project.data;let i = index" class="row">
                   <div class="col-sm-7" style="padding-left: 10%;">
                     <label for="inputproject" class="col-form-label" style="margin-right: 100%"><b>Project</b> </label>
-                    <input type="text" name="project{{i}}" [(ngModel)]="project.data[i].project" class="form-control" id="inputproject" placeholder="Enter Project Name" #name="ngModel" required>
+                    <input type="text" name="project{{i}}" [(ngModel)]="project.data[i].project" class="form-control form-control-sm" id="inputproject" placeholder="Enter Project Name" #name="ngModel" required>
                     <span class="help-block" *ngIf="!name.valid && name.touched">this field is required</span>
                   </div>
                   <div class="col-sm-5">
                       <label for="inputyear" class=" col-form-label" style="margin-right: 100%"> <b>Year</b></label>
-                      <select id="inputState" class="form-control" name="year{{i}}" #year="ngModel" [(ngModel)]="project.data[i].year" required>
+                      <select id="inputState" class="form-control form-control-sm" name="year{{i}}" #year="ngModel" [(ngModel)]="project.data[i].year" required>
                           <option disabled value="2019">Select year of project</option>
                           <option *ngFor="let year of allyear;let i= index" value="{{year - i}}">{{year - i}}</option>
                         </select>
@@ -119,7 +117,7 @@
                 <div align='left'>
                     <div class="row">
                         <div class="col-sm-2" align='left'>
-                            <span><img src="../../assets/img/project.png" alt="project" width="80px" height="80px"></span>
+                            <span><img src="../../assets/img/project.png" alt="project" width="60px" height="60px"></span>
                         </div>
                         <div class="col-sm-10" align='left' style="right: 30px;">
                             <b style="color: #CC5D36;font-size: 22px;">Project</b><br>
@@ -139,13 +137,13 @@
                   </div>
                     <div *ngIf="item.edit == true" class="row col-sm-12" >
                       <div class="col-sm-8">
-                        <label class="col-form-label textleft" style="margin-right: 100%">Project</label>
-                        <input type="text" class="form-control" name="project{{i}}" [(ngModel)]="project.data[i].project" #name="ngModel" required>
+                        <label class="col-form-label textleft" style="margin-right: 100%"><b> Project</b></label>
+                        <input type="text" class="form-control form-control-sm" name="project{{i}}" [(ngModel)]="project.data[i].project" #name="ngModel" required>
                         <span class="help-block" *ngIf="!name.valid && name.touched">this field is required</span>
                       </div>
                       <div class="col-sm-4">
-                        <label class="col-form-label textleft" style="margin-right: 100%">Year</label>
-                        <select id="inputState" class="form-control" name="year{{i}}" #year="ngModel" [(ngModel)]="project.data[i].year" required>
+                        <label class="col-form-label textleft" style="margin-right: 100%"><b> Year</b></label>
+                        <select id="inputState" class="form-control form-control-sm" name="year{{i}}" #year="ngModel" [(ngModel)]="project.data[i].year" required>
                             <option disabled value="2019">Choose...</option>
                             <option *ngFor="let year of allyear;let i= index" value="{{year - i}}">{{year - i}}</option>
                           </select>
@@ -156,21 +154,22 @@
                         <div align='left'>
 
                           <button type="button" class="btn btn-primary btn-sm" (click)="project.data[i].edit = false">Save</button> &nbsp; &nbsp;
-                          <button type="button"  class="btn btn-secondary btn-sm" (click)="project.data[i].edit = true">cancel</button>
+                          <button type="button"  class="btn btn-secondary btn-sm" (click)="project.data[i].edit = false">cancel</button>
                         </div>
                         <div align='right'>
                           <span  *ngIf="project.data[i].del != true">
-                              <button type='button' (click)="project.data[i].del = true" class='delformpj'><img src="../../assets/img/remove.png" alt="remove" width="35px" height="35px"></button>
+                              <img src="../../assets/img/remove.png" (click)="project.data[i].del = true" alt="remove" width="35px" height="35px">
                           </span>
                         </div>
                       </div>
-                      <p align='text-center' *ngIf="project.data[i].del == true" style="margin-top: 15px;">
-                          <span>Are your sure want to remove this project?</span>
-                        <button style="margin-left: 450px; margin-right: 50px;" type="button" (click)="delProject(i)" class="btn btn-primary">Confirm</button>
-                        <button type="button" (click)="project.data[i].del = false" class="btn btn-secondary">Cancel</button>
-                      </p>
+                      <div align='left' *ngIf="project.data[i].del == true">
+                        <span style="margin-right: 80px;">Are your sure want to remove this project?</span>
+                        <button type="button" (click)="delProject(i)" style="margin-right: 5px;margin-bottom: 5px;" class="btn btn-primary btn-sm">Confirm</button>
+                        <button type="button" (click)="project.data[i].del = false" class="btn btn-secondary btn-sm">Cancel</button>
+                      </div>
                   </div>
                 </div>
+                <!-- <button type="button" class="btn btn-warning" (click)="addproject()"><i class="fas fa-plus-circle" style="color:#D85D03"></i> <b> Add more project</b></button> -->
               </div>
               <br>
 
@@ -189,7 +188,7 @@
               <div *ngIf="certification.data.length > 0 &&!certification.state" class="container bg-form text-center" id="div-form-pj2">
                   <div class="row">
                     <div class="col-sm-2" align='left'>
-                        <span><img src="../../assets/img/certificate.png" alt="certificate" width="80px" height="80px"></span>
+                        <span><img src="../../assets/img/certificate.png" alt="certificate" width="60px" height="60px"></span>
                     </div>
                     <div class="col-sm-10" align='left'  style="right: 30px;">
                         <b style="color: #CC5D36; font-size: 22px;">Certification</b><br>
@@ -200,12 +199,12 @@
 
                     <div class="col-sm-7" style="padding-left: 10%;">
                       <label for="inputproject" class="col-form-label" style="margin-right: 100%"><b>Certifications</b></label>
-                      <input type="text" name="certificate{{i}}" [(ngModel)]="certification.data[i].certificate" class="form-control" id="inputproject" #certname="ngModel" placeholder="Enter Certificatate Name" required>
+                      <input type="text" name="certificate{{i}}" [(ngModel)]="certification.data[i].certificate" class="form-control form-control-sm" id="inputproject" #certname="ngModel" placeholder="Enter Certificatate Name" required>
                       <span class="help-block" *ngIf="!certname.valid && certname.touched">this field is required</span>
                     </div>
                     <div class="col-sm-5">
                         <label for="inputyear" class=" col-form-label" style="margin-right: 100%"><b>Year</b></label>
-                      <select id="inputState" class="form-control" name="year{{i}}" #certyear="ngModel" [(ngModel)]="certification.data[i].year" required>
+                      <select id="inputState" class="form-control form-control-sm" name="year{{i}}" #certyear="ngModel" [(ngModel)]="certification.data[i].year" required>
                           <option disabled value="2019">Select Year Certificate Name</option>
                           <option *ngFor="let year of allyear;let i= index" value="{{year - i}}">{{year - i}}</option>
                         </select>
@@ -238,7 +237,7 @@
                     <div align='left'>
                         <div class="row">
                             <div class="col-sm-2" align='left'>
-                                <span><img src="../../assets/img/certificate.png" alt="certificate" width="80px" height="80px"></span>
+                                <span><img src="../../assets/img/certificate.png" alt="certificate" width="60px" height="60px"></span>
                             </div>
                             <div class="col-sm-10" align='left'  style="right: 30px;">
                                 <b style="color: #CC5D36; font-size: 22px;">Certification</b><br>
@@ -258,13 +257,13 @@
                       </div>
                         <div *ngIf="item.edit == true" class="row col-sm-12" >
                           <div class="col-sm-8">
-                            <label class="col-form-label textleft" style="margin-right: 100%">Certifications</label>
-                            <input type="text" class="form-control" name="certificate{{i}}" [(ngModel)]="certification.data[i].certificate " #certname="ngModel" required>
+                            <label class="col-form-label textleft" style="margin-right: 100%"><b> Certifications</b></label>
+                            <input type="text" class="form-control form-control-sm" name="certificate{{i}}" [(ngModel)]="certification.data[i].certificate " #certname="ngModel" required>
                             <span class="help-block" *ngIf="!certname.valid && certname.touched">this field is required</span>
                           </div>
                           <div class="col-sm-4">
-                            <label class="col-form-label textleft" style="margin-right: 100%">Year</label>
-                            <select id="inputState" class="form-control" name="year{{i}}" [(ngModel)]="certification.data[i].year" required>
+                            <label class="col-form-label textleft" style="margin-right: 100%"><b> Year</b></label>
+                            <select id="inputState" class="form-control form-control-sm" name="year{{i}}" [(ngModel)]="certification.data[i].year" required>
                                 <option disabled value="2019">Choose...</option>
                                 <option *ngFor="let year of allyear;let i= index" value= "{{year - i}}" >{{year - i}}</option>
                             </select>
@@ -279,22 +278,22 @@
                             </div>
                             <div align='right'>
                               <span  *ngIf="certification.data[i].del != true">
-                                  <button type='button' (click)="certification.data[i].del = true" class='delformpj'> <img src="../../assets/img/remove.png" alt="remove" width="35px" height="35px"> </button>
+                                <img src="../../assets/img/remove.png" alt="remove" (click)="certification.data[i].del = true"  width="35px" height="35px">
                               </span>
                             </div>
                           </div>
-                          <p align='text-center' *ngIf="certification.data[i].del == true" style="margin-top: 15px;">
-                              <span>Are your sure want to remove this project?</span>
-                            <button style="margin-left: 450px; margin-right: 50px;" type="button" (click)="delCert(i)" class="btn btn-primary btn-sm">Confirm</button>
+                          <div *ngIf="certification.data[i].del == true">
+                            <span  style="margin-right: 80px;">Are your sure want to remove this project?</span>
+                            <button type="button" (click)="delCert(i)" style="margin-right: 5px;" class="btn btn-primary btn-sm">Confirm</button>
                             <button type="button" (click)="certification.data[i].del = false" class="btn btn-secondary btn-sm">Cancel</button>
-                          </p>
+                          </div>
                       </div>
                     </div>
                   </div>
                   <br>
 
                   <!-- [disabled]="!formdetail.valid" -->
-              <button type="button" [disabled]="checkAll(formdetail.invalid)" *ngIf="skill.length > 0 && project.data.length > 0 && certification.data.length > 0 " class="btn btn-primary float-right" style="margin-right: 10%;" (click)="sw()" >Continue</button>
+              <button type="button" [disabled]="checkAll(formdetail.invalid)" *ngIf="skill.length > 0 && project.data.length > 0 && certification.data.length > 0 " class="btn btn-primary float-right" style="margin-right: 20%;" (click)="sw()" >Continue</button>
             </form>
         <!-- End form -->
     </div>

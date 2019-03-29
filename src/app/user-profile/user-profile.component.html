@@ -3,7 +3,7 @@
 </div>
   <div class="container">
     <!-- breadcrumb -->
-    <div class="row" style="width: 75%; margin-left: 13%;">
+    <div class="row" style="width: 55%; margin-left: 23%;">
       <div class="col-sm-6" style="top: 60px;">
         <hr class="line">
       </div>
@@ -12,40 +12,39 @@
       </div>
       <div class="col-sm col-md bc-item" style="right: 11.5%;">
           <a href="#" class="link-breadcrumd-active icon-progerss-active" routerLink="/user-profile" routerLinkActive="active">
-              <img src="../../assets/img/user-profile-white.png" style="margin-top: 20px;" alt="user-profile" width="35px" height="35px">
-            <p style="margin-top: 30px;"><b> User Profile</b></p>
+              <img src="../../assets/img/user-profile-white.png" style="margin-top: 18px;" alt="user-profile" width="30px" height="30px">
           </a>
+          <p class="text-progress-active"><b>User Profile</b></p>
       </div>
       <div class="col-sm col-md bc-item">
         <a href="#" class="link-breadcrumd icon-progerss">
-          <img src="../../assets/img/user details-white.png" style="margin-top: 20px;" alt="user-details" width="35px" height="35px">
-          <p style="margin-top: 30px;" ><b> User Detail</b></p>
+          <img src="../../assets/img/user details-white.png" style="margin-top: 20px;" alt="user-details" width="30px" height="30px">
         </a>
+        <p class="text-progress"><b>User Detail</b></p>
       </div>
       <div class="col-sm col-md bc-item" style="left: 11.5%;">
           <a href="#" class="link-breadcrumd icon-progerss">
-              <img src="../../assets/img/checked-white.png" style="margin-top: 20px;" alt="Complete" width="35px" height="35px">
-              <p style="margin-top: 30px;"><b>Complete</b> </p>
+              <img src="../../assets/img/checked-white.png" style="margin-top: 20px;" alt="Complete" width="30px" height="30px">
           </a>
+          <p class="text-progress"><b>Complete</b> </p>
       </div>
     </div>
-      <br>
       <!-- from -->
 
-      <div class="container" id="bg-form" style="width: 80%">
+      <div class="container" id="bg-form" style="width: 60%">
           <form name="form" (ngSubmit)="UserForm.form.valid && onSubmit()" #UserForm="ngForm">
               <div class="form-group row">
                 <label for="inputEmail" class="col-sm-2 col-form-label"><b>Email :</b></label>
                 <div class="col-sm-4">
-                  <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel" class="form-control" id="inputEmail" placeholder="Email" required email>
+                  <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel" class="form-control form-control-sm" id="inputEmail" placeholder="Email@mail.com" required email>
                   <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="inputTitle" class="col-sm-2 col-form-label"> <b>Title :</b> </label>
                 <div class="col-sm-3">
-                    <select class="form-control form-control-sm" #title="ngModel" name="title" [(ngModel)]="model.title" required>
-                        <option disabled value="">SELETE YOUR TITLE</option>
+                    <select class="form-control form-control-sm" #title="ngModel" name="title" [(ngModel)]="model.title" style="width: 200px;" required>
+                        <option disabled value="">Please Select Your Title</option>
                         <option value="mr">MR</option>
                         <option value="mrs">MRS</option>
                     </select>
@@ -55,13 +54,13 @@
               <div class="form-group row">
                   <label for="inputName" class="col-sm-2 col-form-label"><b>Name :</b> </label>
                   <div class="col-sm-4">
-                    <input type="text" name="name" [(ngModel)]="model.name" class="form-control" id="inputName" placeholder="Name" #name="ngModel" required>
+                    <input type="text" name="name" [(ngModel)]="model.name" class="form-control form-control-sm" id="inputName" placeholder="Enter Name" #name="ngModel" required>
                     <span class="help-block" *ngIf="!name.valid && name.touched">this field is required</span>
                   </div>
 
-                  <label for="inputSurname" class="col-sm-2 col-form-label"><b>Surname :</b> </label>
+                  <label for="inputSurname" class="col-sm-2 col-form-label" style="padding-right: 0%;"><b>Surname :</b> </label>
                   <div class="col-sm-4">
-                    <input type="text" name="sername" [(ngModel)]="model.sername" class="form-control" id="inputSurname" placeholder="Surname" #sername="ngModel" required>
+                    <input type="text" name="sername" [(ngModel)]="model.sername" class="form-control form-control-sm" id="inputSurname" placeholder="Enter Surname" #sername="ngModel" required>
                     <span class="help-block" *ngIf="!sername.valid && sername.touched">this field is required</span>
                   </div>
               </div>
@@ -76,7 +75,7 @@
                       </div>
                   </div>
                   <div class="col-sm-4">
-                      <div class="form-check">
+                      <div class="form-check" style="right: 80px;">
                           <input class="form-check-input" type="radio" [(ngModel)]="model.gender" name="gridRadios" id="gridRadios2" value="Female">
                           <label class="form-check-label" for="gridRadios2">
                           <b>Female</b>
@@ -87,14 +86,14 @@
                 <div class="form-group row">
                   <label for="inputPhone" class="col-sm-3 col-form-label"><b>Mobile Phone:</b> </label>
                   <div class="col-sm-4" style="right: 8%;">
-                    <input type="tel" name="phone" (keypress)="numberOnly($event)" [(ngModel)]="model.phone" #phone="ngModel" class="form-control" id="inputPhone" placeholder="0xxxxxxxx" maxlength="10" required>
-                    <span class="help-block" *ngIf="!phone.valid && phone.touched">this field is required</span>
+                    <input type="tel" name="phone" (keypress)="numberOnly($event)" [(ngModel)]="model.phone" #phone="ngModel" class="form-control form-control-sm" id="inputPhone" placeholder="Enter Mobile Phone" maxlength="10" required>
+                    <span style="margin-left: 22px;" class="help-block" *ngIf="!phone.valid && phone.touched">this field is required</span>
                   </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputAddress" class="col-sm-2 col-form-label"><b> Address :</b></label>
+                    <label for="inputAddress" class="col-sm-2 col-form-label" style="padding-right: 0%;"><b> Address :</b></label>
                     <div class="col-sm-10">
-                        <textarea name="address" class="form-control" [(ngModel)]="model.address" #address="ngModel" id="inputAddress" maxlength="100" rows="3" required></textarea>
+                        <textarea name="address" class="form-control form-control-sm" [(ngModel)]="model.address" #address="ngModel" placeholder="Enter Address" id="inputAddress" maxlength="100" rows="3" required></textarea>
                         <span class="help-block" *ngIf="!address.valid && address.touched">this field is required</span>
                     </div>
                   </div>
@@ -102,8 +101,8 @@
       </div>
       <br>
       <div class="form-group row">
-          <div class="col-sm-11" >
-            <button type="submit" [disabled]="!UserForm.valid" (click)="sw()" class="btn btn-primary float-right" routerLink="/user-details" routerLinkActive="active" style="margin-right: 2%;">Continue</button>
+          <div class="col-sm-10" >
+            <button type="submit" [disabled]="!UserForm.valid" (click)="sw()" class="btn btn-primary float-right" routerLink="/user-details" routerLinkActive="active" style="margin-right: 4%;">Continue</button>
           </div>
         </div>
       <!-- End form -->

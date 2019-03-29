@@ -15,16 +15,16 @@
 }
 /* end title */
 .icon-progerss{
-  height: 80px;
-  width:  80px;
+  height: 70px;
+  width:  70px;
   background-color: rgb(148, 147, 147);
   border-radius: 50%;
   display: inline-block;
 }
 
 .icon-progerss-active{
-  height:  80px;
-  width:  80px;
+  height:  70px;
+  width:  70px;
   background-color: #FF8041;
   border-radius: 50%;
   display: inline-block;
@@ -32,6 +32,16 @@
   border-color: #CC5D36;
   border-width:3px;
   pointer-events: none;
+}
+
+.text-progress{
+  color: rgb(148, 147, 147);
+  font-size: 14px;
+}
+
+.text-progress-active{
+  color: #CC5D36;
+  font-size: 14px;
 }
 
 /* breadcrumb*/
@@ -113,9 +123,9 @@
 
 #bg-contai-endding{
   background-color: #ffffff;
-  width: 80%;
+  width: 60%;
   display: block;
-  margin-left: 10%;
+  margin-left: 20%;
   border-radius: 5px;
   border: 1px solid #CC5D36;
   box-sizing: border-box;

@@ -113,10 +113,12 @@ export class UserDetailsComponent implements OnInit {
 
   addproject = () =>{
     this.project.data.push({ project : "" , year : 2019});
+    this.project.state = false;
   }
 
   addcertification = () =>{
     this.certification.data.push({ certificate : "" , year : 2019});
+    this.certification.state = false;
   }
 
   savetemp(i){
