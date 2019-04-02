@@ -147,7 +147,7 @@ select.ng-valid{
   padding-bottom: 3%;
   padding: 0%;
   margin: 0%;
-  padding-top: 12%;
+  padding-top: 7%;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
@@ -160,6 +160,24 @@ select.ng-valid{
 }
 #inputPhone{
   margin-left: 15%;
+}
+#but-end{
+  margin-right: 4%;
+  width: 72%;
+}
+.bg-form-2{
+  background-color: #ffffff;
+  width: 60%;
+  margin-top: 1.5%;
+  margin-left: 20%;
+  padding-top: 3%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 1%;
+  border: 1px solid #CC5D36;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 

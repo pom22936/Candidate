@@ -31,7 +31,7 @@
       </div>
         <!-- from -->
             <form name="formdetail" #formdetail="ngForm">
-                <div class="container bg-form" >
+                <!-- <div class="container bg-form" >
                   <div class="form-row">
                     <div class="form-group row col-sm-6" >
                         <label for="inputPosition"><b>Job Position :</b></label>
@@ -54,7 +54,7 @@
 
                   </div>
               </div>
-              <br>
+              <br> -->
 
 
               <div *ngIf="project.data.length == 0" class="container bg-form text-center" id="div-form-pj">
@@ -83,12 +83,25 @@
                     <span class="help-block" *ngIf="!name.valid && name.touched">this field is required</span>
                   </div>
                   <div class="col-sm-5">
+                    <label for="role" class=" col-form-label" style="margin-right: 15%"> <b>Role and Responsibility</b></label>
+                    <input type="text" name="role{{i}}" [(ngModel)]="project.data[i].role" class="form-control form-control-sm" placeholder="Enter Project Name" #role="ngModel" required>
+                    <span class="help-block" *ngIf="!role.valid && role.touched">this field is required</span>
+                  </div>
+                  <div class="col-sm-7" style="padding-left: 10%;">
+                    <label for="inputmonth" class="col-form-label" style="margin-right: 100%"><b>month</b> </label>
+                    <select id="inputState" class="form-control form-control-sm" name="month{{i}}" #month="ngModel" [(ngModel)]="project.data[i].month" required>
+                      <option disabled value="month">Select month of project</option>
+                      <option *ngFor="let month of allmonth;let i= index" value="{{month}}">{{month}}</option>
+                    </select>
+                    <span class="help-block" *ngIf="month.pristine && month.touched">this field is required</span>
+                  </div>
+                  <div class="col-sm-5">
                       <label for="inputyear" class=" col-form-label" style="margin-right: 100%"> <b>Year</b></label>
                       <select id="inputState" class="form-control form-control-sm" name="year{{i}}" #year="ngModel" [(ngModel)]="project.data[i].year" required>
                           <option disabled value="2019">Select year of project</option>
                           <option *ngFor="let year of allyear;let i= index" value="{{year - i}}">{{year - i}}</option>
-                        </select>
-                        <span class="help-block" *ngIf="year.pristine && year.touched">this field is required</span>
+                      </select>
+                      <span class="help-block" *ngIf="year.pristine && year.touched">this field is required</span>
                   </div><br><br>
                       <div class="col-sm-12" style="margin-top: 10px;" align='right' *ngIf="project.data[i].del != true && i != 0">
                         <img src="../../assets/img/remove.png" (click)="project.data[i].del = true" alt="remove" width="35px" height="35px">
@@ -136,12 +149,25 @@
                     <hr>
                   </div>
                     <div *ngIf="item.edit == true" class="row col-sm-12" >
-                      <div class="col-sm-8">
+                      <div class="col-sm-7" style="padding-left: 10%;">
                         <label class="col-form-label textleft" style="margin-right: 100%"><b> Project</b></label>
                         <input type="text" class="form-control form-control-sm" name="project{{i}}" [(ngModel)]="project.data[i].project" #name="ngModel" required>
                         <span class="help-block" *ngIf="!name.valid && name.touched">this field is required</span>
                       </div>
-                      <div class="col-sm-4">
+                      <div class="col-sm-5">
+                        <label for="role" class=" col-form-label" style="margin-right: 10%"> <b>Role and Responsibility</b></label>
+                        <input type="text" name="role{{i}}" [(ngModel)]="project.data[i].role" class="form-control form-control-sm" placeholder="Enter Project Name" #role="ngModel" required>
+                        <span class="help-block" *ngIf="!role.valid && role.touched">this field is required</span>
+                      </div>
+                      <div class="col-sm-7" style="padding-left: 10%;">
+                        <label for="inputmonth" class="col-form-label" style="margin-right: 100%"><b>month</b> </label>
+                        <select id="inputState" class="form-control form-control-sm" name="month{{i}}" #month="ngModel" [(ngModel)]="project.data[i].month" required>
+                          <option disabled value="month">Select month of project</option>
+                          <option *ngFor="let month of allmonth;let i= index" value="{{month}}">{{month}}</option>
+                        </select>
+                        <span class="help-block" *ngIf="month.pristine && month.touched">this field is required</span>
+                      </div>
+                      <div class="col-sm-5">
                         <label class="col-form-label textleft" style="margin-right: 100%"><b> Year</b></label>
                         <select id="inputState" class="form-control form-control-sm" name="year{{i}}" #year="ngModel" [(ngModel)]="project.data[i].year" required>
                             <option disabled value="2019">Choose...</option>
@@ -169,7 +195,7 @@
                       </div>
                   </div>
                 </div>
-                <!-- <button type="button" class="btn btn-warning" (click)="addproject()"><i class="fas fa-plus-circle" style="color:#D85D03"></i> <b> Add more project</b></button> -->
+                <button type="button" class="btn btn-warning" (click)="addproject()"><i class="fas fa-plus-circle" style="color:#D85D03"></i> <b> Add more project</b></button>
               </div>
               <br>
 
@@ -197,12 +223,20 @@
                   </div>
                   <div *ngFor="let c of certification.data;let i = index" class="row">
 
-                    <div class="col-sm-7" style="padding-left: 10%;">
+                    <div class="col-sm-12" style="padding-left: 10%;">
                       <label for="inputproject" class="col-form-label" style="margin-right: 100%"><b>Certifications</b></label>
                       <input type="text" name="certificate{{i}}" [(ngModel)]="certification.data[i].certificate" class="form-control form-control-sm" id="inputproject" #certname="ngModel" placeholder="Enter Certificatate Name" required>
                       <span class="help-block" *ngIf="!certname.valid && certname.touched">this field is required</span>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6" style="padding-left: 10%;">
+                      <label for="inputmonth" class="col-form-label" style="margin-right: 100%"><b>month</b> </label>
+                      <select id="inputState" class="form-control form-control-sm" name="month{{i}}" #month="ngModel" [(ngModel)]="certification.data[i].month" required>
+                        <option disabled value="month">Select month of project</option>
+                        <option *ngFor="let month of allmonth;let i= index" value="{{month}}">{{month}}</option>
+                      </select>
+                      <span class="help-block" *ngIf="month.pristine && month.touched">this field is required</span>
+                    </div>
+                    <div class="col-sm-6">
                         <label for="inputyear" class=" col-form-label" style="margin-right: 100%"><b>Year</b></label>
                       <select id="inputState" class="form-control form-control-sm" name="year{{i}}" #certyear="ngModel" [(ngModel)]="certification.data[i].year" required>
                           <option disabled value="2019">Select Year Certificate Name</option>
@@ -256,12 +290,20 @@
                         <hr>
                       </div>
                         <div *ngIf="item.edit == true" class="row col-sm-12" >
-                          <div class="col-sm-8">
+                          <div class="col-sm-12">
                             <label class="col-form-label textleft" style="margin-right: 100%"><b> Certifications</b></label>
                             <input type="text" class="form-control form-control-sm" name="certificate{{i}}" [(ngModel)]="certification.data[i].certificate " #certname="ngModel" required>
                             <span class="help-block" *ngIf="!certname.valid && certname.touched">this field is required</span>
                           </div>
-                          <div class="col-sm-4">
+                          <div class="col-sm-6" style="padding-left: 10%;">
+                            <label for="inputmonth" class="col-form-label" style="margin-right: 100%"><b>month</b> </label>
+                            <select id="inputState" class="form-control form-control-sm" name="month{{i}}" #month="ngModel" [(ngModel)]="certification.data[i].month" required>
+                              <option disabled value="month">Select month of project</option>
+                              <option *ngFor="let month of allmonth;let i= index" value="{{month}}">{{month}}</option>
+                            </select>
+                            <span class="help-block" *ngIf="month.pristine && month.touched">this field is required</span>
+                          </div>
+                          <div class="col-sm-6">
                             <label class="col-form-label textleft" style="margin-right: 100%"><b> Year</b></label>
                             <select id="inputState" class="form-control form-control-sm" name="year{{i}}" [(ngModel)]="certification.data[i].year" required>
                                 <option disabled value="2019">Choose...</option>
@@ -289,11 +331,14 @@
                           </div>
                       </div>
                     </div>
+                    <button type="button" class="btn btn-warning" (click)="addcertification()"><i class="fas fa-plus-circle" style="color:#D85D03"></i> <b> Add more Certifications</b></button>
                   </div>
+
                   <br>
 
                   <!-- [disabled]="!formdetail.valid" -->
-              <button type="button" [disabled]="checkAll(formdetail.invalid)" *ngIf="skill.length > 0 && project.data.length > 0 && certification.data.length > 0 " class="btn btn-primary float-right" style="margin-right: 20%;" (click)="sw()" >Continue</button>
+                  <!-- *ngIf="skill.length > 0 && project.data.length > 0 && certification.data.length > 0 " -->
+              <button type="button" [disabled]="checkAll(formdetail.invalid)" *ngIf="project.data.length > 0 && certification.data.length > 0 " class="btn btn-primary float-right" id="but-end" (click)="sw()" >Continue</button>
             </form>
         <!-- End form -->
     </div>

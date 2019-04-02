@@ -30,9 +30,9 @@
       </div>
     </div>
       <!-- from -->
-
+      <form name="form" (ngSubmit)="UserForm.form.valid && onSubmit()" #UserForm="ngForm">
       <div class="container" id="bg-form" style="width: 60%">
-          <form name="form" (ngSubmit)="UserForm.form.valid && onSubmit()" #UserForm="ngForm">
+
               <div class="form-group row">
                 <label for="inputEmail" class="col-sm-2 col-form-label"><b>Email :</b></label>
                 <div class="col-sm-4">
@@ -90,19 +90,37 @@
                     <span style="margin-left: 22px;" class="help-block" *ngIf="!phone.valid && phone.touched">this field is required</span>
                   </div>
                 </div>
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <label for="inputAddress" class="col-sm-2 col-form-label" style="padding-right: 0%;"><b> Address :</b></label>
                     <div class="col-sm-10">
                         <textarea name="address" class="form-control form-control-sm" [(ngModel)]="model.address" #address="ngModel" placeholder="Enter Address" id="inputAddress" maxlength="100" rows="3" required></textarea>
                         <span class="help-block" *ngIf="!address.valid && address.touched">this field is required</span>
                     </div>
-                  </div>
-            </form>
+                </div> -->
       </div>
+
+      <div class="container" class="bg-form-2">
+        <div class="form-group">
+          <label ><b>Job position :</b></label>
+          <input type="text" class="form-control form-control-sm" name="position1" [(ngModel)]="model.position1" placeholder="Enter job position" style="margin-bottom: 1%" #position1="ngModel" required>
+          <span class="help-block" *ngIf="!position1.valid && position1.touched">this field is required</span>
+          <input type="text" class="form-control form-control-sm" name="position2" [(ngModel)]="model.position2" placeholder="Enter job position" style="margin-bottom: 1%" #position2="ngModel" required>
+          <span class="help-block" *ngIf="!position2.valid && position2.touched">this field is required</span>
+          <input type="text" class="form-control form-control-sm" name="position3" [(ngModel)]="model.position3" placeholder="Enter job position" style="margin-bottom: 1%" #position3="ngModel" required>
+          <span class="help-block" *ngIf="!position3.valid && position3.touched">this field is required</span>
+        </div>
+        <div class="form-group">
+          <label ><b>Except Saraly :</b></label>
+          <input type="text" class="form-control form-control-sm" name="Saraly" [(ngModel)]="model.Saraly" placeholder="Select Except Saraly " style="margin-bottom: 1%" #Saraly="ngModel" required>
+          <span class="help-block" *ngIf="!Saraly.valid && Saraly.touched">this field is required</span>
+        </div>
+      </div>
+
+    </form>
       <br>
       <div class="form-group row">
           <div class="col-sm-10" >
-            <button type="submit" [disabled]="!UserForm.valid" (click)="sw()" class="btn btn-primary float-right" routerLink="/user-details" routerLinkActive="active" style="margin-right: 4%;">Continue</button>
+            <button type="submit" [disabled]="!UserForm.valid" (click)="sw()" class="btn btn-primary float-right" routerLink="/user-details" routerLinkActive="active" id="but-end">Continue</button>
           </div>
         </div>
       <!-- End form -->

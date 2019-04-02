@@ -18,6 +18,7 @@ export class UserDetailsComponent implements OnInit {
 
   date: Date = new Date();
   allyear: any = [];
+  allmonth: any = [];
   year: Number = 0;
   skill: string[] = [];
   project: any = {
@@ -38,6 +39,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.allyear = Array(5).fill(new Date().getFullYear());
+    this.allmonth = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
     let fromsession = this.dataService.getproject();
 
@@ -112,12 +114,12 @@ export class UserDetailsComponent implements OnInit {
   }
 
   addproject = () =>{
-    this.project.data.push({ project : "" , year : 2019});
+    this.project.data.push({ project : "" ,role : "",month : "month", year : 2019});
     this.project.state = false;
   }
 
   addcertification = () =>{
-    this.certification.data.push({ certificate : "" , year : 2019});
+    this.certification.data.push({ certificate : "",month:"month", year : 2019});
     this.certification.state = false;
   }
 
