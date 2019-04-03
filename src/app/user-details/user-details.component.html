@@ -20,7 +20,7 @@
           <a href="#" class="link-breadcrumd-active icon-progerss-active">
             <img src="../../assets/img/user details-white.png" style="margin-top: 20px;" alt="user-details" width="30px" height="30px">
           </a>
-          <p class="text-progress-active"><b>User Detail</b></p>
+          <p class="text-progress-active"><b>Work Experience</b></p>
         </div>
         <div class="col-sm col-md bc-item" style="left: 11.5%;">
             <a href="#" class="link-breadcrumd icon-progerss">
@@ -84,7 +84,7 @@
                   </div>
                   <div class="col-sm-5">
                     <label for="role" class=" col-form-label" style="margin-right: 15%"> <b>Role and Responsibility</b></label>
-                    <input type="text" name="role{{i}}" [(ngModel)]="project.data[i].role" class="form-control form-control-sm" placeholder="Enter Project Name" #role="ngModel" required>
+                    <input type="text" name="role{{i}}" [(ngModel)]="project.data[i].role" class="form-control form-control-sm" id="role" placeholder="Enter Project Name" #role="ngModel" required>
                     <span class="help-block" *ngIf="!role.valid && role.touched">this field is required</span>
                   </div>
                   <div class="col-sm-7" style="padding-left: 10%;">
@@ -137,7 +137,7 @@
                             <span style="font-size: 15px;"> Attract relevant oppotunities. Provide project detail</span><br>
                         </div>
                       </div>
-                </div><br><br>
+                </div><br>
 
                 <div class="row" *ngFor="let item of project.data; let i = index">
                   <div *ngIf="item.edit != true" class="col-sm-12">
@@ -195,7 +195,7 @@
                       </div>
                   </div>
                 </div>
-                <button type="button" class="btn btn-warning" (click)="addproject()"><i class="fas fa-plus-circle" style="color:#D85D03"></i> <b> Add more project</b></button>
+                <button type="button" class="btn btn-warning" (click)="addmoreproject()"><i class="fas fa-plus-circle" style="color:#D85D03"></i> <b> Add more project</b></button>
               </div>
               <br>
 

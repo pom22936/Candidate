@@ -76,9 +76,13 @@ export class UserDetailsComponent implements OnInit {
     const checkinput= [];
     //get true or false by input
     for (let index = 0; index < this.project.data.length; index++) {
-      if(this.project.data[index].project == '')
+      if(this.project.data[index].project == "" && this.project.data[index].role == "")
         checkinput[index] = true;
-      else
+      else if(this.project.data[index].project == "" && this.project.data[index].role != "")
+        checkinput[index] = true;
+      else if(this.project.data[index].project != "" && this.project.data[index].role == "")
+        checkinput[index] = true;
+      else if(this.project.data[index].project != "" && this.project.data[index].role != "")
         checkinput[index] = false;
     }
     //check allvalue true or false
@@ -114,6 +118,11 @@ export class UserDetailsComponent implements OnInit {
   }
 
   addproject = () =>{
+    this.project.data.push({ project : "" ,role : "",month : "month", year : 2019});
+    this.project.state = false;
+  }
+
+  addmoreproject = () =>{
     this.project.data.push({ project : "" ,role : "",month : "month", year : 2019});
     this.project.state = false;
   }

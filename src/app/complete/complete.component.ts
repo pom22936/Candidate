@@ -44,7 +44,9 @@ export class CompleteComponent implements OnInit {
       certificate: this.data.detail.certification.data
     };
 
-    // console.log(JSON.stringify(this.json));
+    console.log(this.data.user);
+    console.log(this.data.detail);
+
     // http://localhost:7777/user/newuser
     // https://itoaos-commnunity-api.com/register/candidate/createinfo/
     // http://jsonplaceholder.typicode.com/posts

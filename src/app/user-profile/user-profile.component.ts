@@ -5,8 +5,6 @@ import { DataService } from '../data.service';
 
 declare var swal: any;
 
-
-
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -30,17 +28,6 @@ export class UserProfileComponent implements OnInit {
 
   }
 
-  checkgender(){
-
-  }
-
-  onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
-  }
-
-  get getdatauserprofile(){
-    return JSON.stringify(this.model);
-  }
 
   numberOnly(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
@@ -51,7 +38,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   sw(){
-        let temp:any = {};
+        let temp: any = {};
         temp.model = this.model;
         this.dataService.setuser(temp);
 
